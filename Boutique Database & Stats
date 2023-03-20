@@ -1,0 +1,20 @@
+--Create a store database
+CREATE TABLE store (id INTEGER PRIMARY KEY, product_type TEXT, SOH INTEGER, units_sold INTEGER, retail_price NUMERIC, unit_cost NUMERIC);
+INSERT into store (id, product_type, SOH, units_sold, retail_price, unit_cost)
+VALUES
+(1, "T-SHIRT", 10, 5, 20, 8),
+(2, "SWEATSHIRT", 15, 6, 45, 12),
+(3, "SWEATER", 12, 8, 50, 15),
+(4, "PANTS", 10, 4, 30, 13),
+(5, "SWEATPANTS", 15, 8, 35, 12),
+(6, "SHORTS", 9, 3, 25, 8),
+(7, "SKIRT", 16, 7, 30, 12),
+(8, "JEANS", 10, 7, 40, 16),
+(9, "DRESS", 15, 8, 30, 12),
+(10, "SWIMSUIT", 10, 6, 25, 10);
+
+--display the database ordered by price, least expensive to most expensive
+SELECT * FROM store ORDER BY retail_price ASC;
+
+--which item has the most stock on hand?
+SELECT product_type, MAX(SOH) FROM store;
